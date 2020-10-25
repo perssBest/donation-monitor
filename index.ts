@@ -1,4 +1,4 @@
-import io from 'socket.io-client'
+import * as io from 'socket.io-client'
 import { config } from "./config"
 
 const donationalerts = io(`${config["socket"]}:${config["socket-port"]}`);
