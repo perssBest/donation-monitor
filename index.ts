@@ -1,11 +1,15 @@
-import * as io from 'socket.io-client'
+import io from 'socket.io-client'
 import { config } from "./config"
 
-const link = config["socket"] + ':' + config["socket-port"]
-const donationalerts = io(link);
-
+const donationalerts = io(`${config["socket"]}:${config["socket-port"]}`);
 donationalerts.emit('add-user', { token: config["donation-token"], type: config["type"] });
-donationalerts.on("donation", (body) => {
-    let donate = JSON.parse(body);
-    console.log(`- Username: ${donate["username"]}\n- Amount: ${donate["amount"]} ${donate["currency"]}\n- Message: ${donate["message"]}`)
+donationalerts.on("donation", (donate) => {
+    donate = JSON.parse(donate);
+    // something code...
+    let data: array = [
+        `- Username: ${donate["username"]}`,
+        `- Amount: ${donate["amount"]} ${donate["currency"]}`,
+        `- Message: ${donate["message"]}`
+    ];
+    console.log(`${data.join("\n")}`);
 });
