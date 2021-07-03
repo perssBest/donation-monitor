@@ -1,7 +1,8 @@
 export const config = Object({ 
     "socket": "wss://socket.donationalerts.ru",
     "socket-port": "443",
-    "type": "minor",
+    "type": "alert_widget",
 
-    "donation-token": " "
-})
+    "donation-token": "paste-your-token-here"
+});
+

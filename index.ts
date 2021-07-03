@@ -6,7 +6,7 @@ donationalerts.emit('add-user', { token: config["donation-token"], type: config[
 donationalerts.on("donation", (donate) => {
     donate = JSON.parse(donate);
     // something code...
-    let data: array = [
+    let data: Array<string> = [
         `- Username: ${donate["username"]}`,
         `- Amount: ${donate["amount"]} ${donate["currency"]}`,
         `- Message: ${donate["message"]}`
